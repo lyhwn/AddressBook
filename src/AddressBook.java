@@ -11,13 +11,13 @@ public class AddressBook {
     private JTextField telTextField, nameTextField;
     private JTextArea jTextAreaShow;
     private HashMap<String, String> telMap;
-    private File addrBookFile;
+    private File addressBookFile;
     private ObjectInputStream ois;
     private ObjectOutputStream oos;
     private String POP_UPS_TITLE_INFO = "提示";
     private String POP_UPS_TITLE_ERROR = "提示";
 
-    private File createAddrBookFile() {
+    private File createaddressBookFile() {
         File file = new File("D:/通讯录.txt");
         if (!file.exists()) {
             try {
@@ -35,9 +35,9 @@ public class AddressBook {
         JLabel jLabelTel, jLabelName;
 
         final String ERROR_MESSAGE = "程序出错，联系程序员爸爸吧！！！";
-        addrBookFile = createAddrBookFile();
+        addressBookFile = createaddressBookFile();
         try {
-            ois = new ObjectInputStream(new FileInputStream(addrBookFile));
+            ois = new ObjectInputStream(new FileInputStream(addressBookFile));
             telMap = (HashMap<String, String>) ois.readObject();
         } catch (EOFException e) {
             telMap = new HashMap<String, String>();
@@ -52,7 +52,7 @@ public class AddressBook {
                     //  int option = JOptionPane.showConfirmDialog(null, "是否关闭程序？", "程序退出提示", JOptionPane.OK_CANCEL_OPTION);
                     //   if (option == JOptionPane.OK_OPTION) {
                     try {
-                        oos = new ObjectOutputStream(new FileOutputStream(addrBookFile));
+                        oos = new ObjectOutputStream(new FileOutputStream(addressBookFile));
                         oos.writeObject(telMap);
                     } catch (Exception ee) {
                         JOptionPane.showMessageDialog(null, ERROR_MESSAGE, POP_UPS_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
