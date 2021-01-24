@@ -17,7 +17,7 @@ public class AddressBook {
     private String POP_UPS_TITLE_INFO = "提示";
     private String POP_UPS_TITLE_ERROR = "提示";
 
-    private File createaddressBookFile() {
+    private File createAddressBookFile() {
         File file = new File("D:/通讯录.txt");
         if (!file.exists()) {
             try {
@@ -35,7 +35,7 @@ public class AddressBook {
         JLabel jLabelTel, jLabelName;
 
         final String ERROR_MESSAGE = "程序出错，联系程序员爸爸吧！！！";
-        addressBookFile = createaddressBookFile();
+        addressBookFile = createAddressBookFile();
         try {
             ois = new ObjectInputStream(new FileInputStream(addressBookFile));
             telMap = (HashMap<String, String>) ois.readObject();
